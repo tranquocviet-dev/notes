@@ -1,0 +1,21 @@
+* interconnectedness
+:PROPERTIES:
+:ID:       14e608ba-8989-495f-86b9-d8e9bc050374
+:END:
+** why i made this note
+- as time went on and i use more and more emacs and specifically org mode i have grown accustomed to many things it has
+- but one thing im positive i cant live without has been links between documents
+** asking the why for links
+*** links are part of how i remember info
+- life can be very hectic and has a ton of useless bullshit that i do not like to follow
+- so instead of trying to follow everyone and everything i will try to make connection to the stuff that makes sense
+- that way i can be negligent of the ever changing life around me and still be up to date
+*** links are essentially storage solution to my life
+- one thing that i dislike a lot is a folder structure as i dont like to have to navigate folders for my work
+- the only exception is folders for projects in languages because that way the amount of files wont be stupid
+*** links are part of my ability to think and process information
+- if you take all of the above and add them together you get the kind of thinking ability that i am at
+** but why?
+humans deserve to have a life that they can call themselves, and this is one way i know to claim back the life that i have from the various kinds of people out there who is just trying to make themselves more superior than me
+
+[[file:org.org][base]]

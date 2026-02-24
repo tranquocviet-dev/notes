@@ -1,0 +1,23 @@
+:PROPERTIES:
+:ID: fa426db1-561d-4b34-8022-f4ab4ffa6d95
+:END:
+
+* base or something
+** about me something something
+- name: Tran Quoc Viet
+- age: too low to be a writer
+- *funny video game handle*: dicevn
+** about this folder something something
+- use: shitpost, todo, basically anything related to life
+- written in pure org mode, sometimes exported to pdf or typst or html
+- there is no folder beyond here. see [[id:14e608ba-8989-495f-86b9-d8e9bc050374][interconnectedness]] for more details
+** projects im currently working on
+*** daily projects
+- [[id:28cd1bbf-1ecd-4d3c-8d4d-219eb444c8d7][Drawing Note]]
+- JP Note (no file yet, tba)
+- [[id:3e191908-9c1c-48b2-8496-d01f1aa3005c][Typing Note]]
+*** homework (i hate it here)
+**** COMP 2026-02
+- requirements: [[id:840b0bf0-b03a-40a1-9dd1-7c7ea21461ca][here]]
+- progress: 
+- deadline: 22-04

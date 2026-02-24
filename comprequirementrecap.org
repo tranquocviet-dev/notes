@@ -1,0 +1,50 @@
+:PROPERTIES:
+:ID: 840b0bf0-b03a-40a1-9dd1-7c7ea21461ca
+:END:
+
+*  Submission related
+** submission details
+- pdf containing report
+- screencast explaining the content from pdf and the method to gather content
+** requirement for submission
+- screencast must contain audio voice over
+- research article must be written with Microsoft Word Online and must be shared with review access
+* Article Specification
+** Coursework task recap
+- Select a data science related topic (most likely *any* topic)
+- Write an article on said topic
+** Criteria
+- Has to be done independantly
+- Has to contain ~2000 words, excluding references
+- Topic has to be specific
+- Written in academic language and refer to the academic literature relevant
+- Reference should be written Havard-Style
+** Structure
+- Title page
+- Introduction
+- Literature review
+- Discussion, arguments
+- (A set of) conclusions
+- (List of) references
+** Notes
+*** Select specific topic
+- should only cover one use case for a larger Data science topic
+*** Larger topic board (select one of the following and find a specific use case for them)
+- Machine Learning
+- Artificial Intelligence
+- Data Mining
+- Big Data Analytics
+- Predictive Analytics
+- Natural Language Processing
+- Computer Vision
+- Image Processing
+- Time Series Analysis
+- Social Network Analysis
+- Recommender Systems
+- Data Visualisation
+- Sentiment Analysis
+- Web Scraping and Text Mining
+- Healthcare Data Analytics
+- Financial Data Analysis
+- Business Intelligence
+- Ethical and Legal Issues in Data Science

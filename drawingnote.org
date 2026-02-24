@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       28cd1bbf-1ecd-4d3c-8d4d-219eb444c8d7
+:END:
+* Drawing Note
+** about the structure of this note
+*** it will cover all the progress and the direction of the project
+*** it will act as a to do list for the project
+*** it will document the changes in preference for my drawings
+** Stay Gold (started 2026-02-17)
+*** 2026-02-16: initial sketch, basic body and clothes shape
+*** 2026-02-17: changed the clothes shape, add colors to the background
+*** 2026-02-18: fully colored the clothes, albeit roughly
+*** DONE 2026-02-19: add more detail to clothes drawing, add shadow
+*** DONE 2026-02-20: outline the drawing and clothes shape
+*** DONE 2026-02-22: face outline, and hair outline
+*** TODO 2026-02-23: face color fill, hair finishing touch and logic check
