@@ -1,0 +1,62 @@
+* Exploratory Development Analysis (EDA) 
+:PROPERTIES:
+:ID:       adf87e8c-fab7-440e-89ee-96279e297b9f
+:END:
+** Introduction to EDA
+- a method of data analysis to get the main characteristics
+- a graphical representation of data to provide insight and understanding
+- a.k.a learn something from the data given by condensing data
+** Descriptive statistics
+- collect, summarize and present data
+*** Central Tendency
+- where the 'typical' value lies
+- a range that signifies data measurement median
+*** Variability
+- how "spread out" the data is
+** Data summarization techniques
+*** Frequency distribution
+- the number of times a unique value appears
+*** Percentiles and quartiles
+- percentiles devide into 100 part, quartiles into 4 parts based on how big the value is
+*** Interquartile range
+- range between q1 and q3, basically the middle 2 parts of a quartile
+- *also* known as middle 50% of the range in terms of how big the values are
+*** Box plots for visual summarization
+- graphical representation of dataset based on quartiles
+- showing the spread of the dataset
+** Data visualization
+- the graphical representation of data using graphs, tables, charts, maps
+- they help convey complex info and aid in exploring patterns, relationships, outliers within the dataset
+*** Principles
+**** Clarity and simplicity
+- avoid complexity, use straightforward language
+**** Accuracy and precision
+- double-check data accuracy, use appropriate scales
+**** Relevance to the audience
+- customize visuals to convey insighty that resonate with the audience, allow them to understand what we are conveying
+**** Consistency in design
+- use consistent themes and design for the presentation for cohesion and professionalism
+*** Choosing the right visualization
+- bar chart for categorized data
+- histograms for distribution
+- line chart for trends over time
+- scatter plots for relationships
+*** Scaling and formatting
+- annotations sparingly
+- clearly label axes, data points and informative titles
+- appropritate scales to avoid misinterpretation
+- choose an aethetically pleasing colorscheme
+*** Common pitfalls
+- Misleading scales
+- overcrowded visuals (simplify visuals instead of using too many)
+- lack of context
+- misintepretation of data
+** Challenges with EDA
+*** Missing data in set
+- add dummy data to set in place of missing data or consider the value of missing data
+*** Handling outliers
+- identify and adress outliers, then transform or remove the outlier
+*** Ensuring data quality
+- implement data cleaning procedures, validate sources and address inconsistencies
+*** Selecting relevant Variables
+- consult subject  matter and leverage statistical techniques

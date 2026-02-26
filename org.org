@@ -21,3 +21,5 @@
 - requirements: [[id:840b0bf0-b03a-40a1-9dd1-7c7ea21461ca][here]]
 - progress: 
 - deadline: 22-04
+**** COMP1845 2026-02
+- requirements: [[https://docs.google.com/document/d/1aCcXFQFLp7_gNksui3nKg6_rvb859LyO/edit][here]]
