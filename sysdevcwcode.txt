@@ -1,0 +1,447 @@
+TABLE CREATION CODE:
+
+CREATE TABLE Zip
+(
+    ZipCode VARCHAR(128) NOT NULL PRIMARY KEY,
+    Country VARCHAR(128),
+    Region VARCHAR(128),
+    City VARCHAR(128)1
+);
+
+CREATE TABLE CustomerAddress
+(
+    CustomerAddressID INT NOT NULL PRIMARY KEY,
+    CustomerAddressStreet VARCHAR(128),
+    CustomerAddressStreetNum INT(128),
+    CustomerAddressZip VARCHAR(128),
+    FOREIGN KEY (CustomerAddressZip) REFERENCES Zip(ZipCode)
+);
+
+CREATE TABLE DeliveryAddress
+(
+    DeliveryAddressID INT NOT NULL PRIMARY KEY,
+    DeliveryAddressStreet VARCHAR(128),
+    DeliveryAddressStreetNum INT(128),
+    DeliveryAddressZip VARCHAR(128),
+    FOREIGN KEY (DeliveryAddressZip) REFERENCES Zip(ZipCode)
+);
+
+CREATE TABLE SupplierAddress
+(
+    SupplierAddressID INT NOT NULL PRIMARY KEY,
+    SupplierAddressStreet VARCHAR(128),
+    SupplierAddressStreetNum INT(128),
+    SupplierAddressZip VARCHAR(128),
+    FOREIGN KEY (SupplierAddressZip) REFERENCES Zip(ZipCode)
+);
+
+CREATE TABLE Customer
+(
+    CustomerID INT NOT NULL PRIMARY KEY,
+    CustomerFirstName VARCHAR(128),
+    CustomerSecondName VARCHAR(128),
+    CustomerLastName VARCHAR(128),
+    CustomerPhone INT(128),
+    CustomerAddressIDCode INT,
+    FOREIGN KEY (CustomerAddressIDCode) REFERENCES CustomerAddress(CustomerAddressID)
+);
+
+CREATE TABLE Supplier
+(
+    SupplierID INT NOT NULL PRIMARY KEY,
+    SupplierName VARCHAR(128),
+    SupplierPhone INT(128),
+    SupplierAddressIDCode INT,
+    FOREIGN KEY (SupplierAddressIDCode) REFERENCES SupplierAddress(SupplierAddressID)
+);
+
+CREATE TABLE Item
+(
+    ItemID INT NOT NULL PRIMARY KEY,
+    ItemName VARCHAR(128),
+    ItemSupplierID INT(128),
+    ItemCategory VARCHAR(128),
+    ItemLeft INT(128),
+    ItemCost INT(128),
+    CONSTRAINT SupplierID FOREIGN KEY (ItemSupplierID)
+    REFERENCES Supplier(SupplierID)
+);
+
+CREATE TABLE DeliveryService
+(
+    DeliveryServiceID INT NOT NULL PRIMARY KEY,
+    DeliveryServiceName VARCHAR(128),
+    DeliveryServicePhone INT(128),
+    DeliveryAddressIDCode INT,
+    FOREIGN KEY (DeliveryAddressIDCode) REFERENCES DeliveryAddress(DeliveryAddressID)
+);
+
+CREATE TABLE Sale
+(
+    SaleID INT NOT NULL PRIMARY KEY,
+    SaleCustomerID INT,
+    SaleDeliveryServiceID INT,
+    FOREIGN KEY (SaleCustomerID) REFERENCES Customer(CustomerID),
+    FOREIGN KEY (SaleDeliveryServiceID) REFERENCES DeliveryService(DeliveryServiceID)
+);
+
+CREATE TABLE Receipt
+(
+    ReceiptSaleID INT,
+    ReceiptItemID INT,
+    ReceiptItemCount INT(128),
+    FOREIGN KEY (ReceiptSaleID) REFERENCES Sale(SaleID),
+    FOREIGN KEY (ReceiptItemID) REFERENCES Item(ItemID)
+);
+
+TABLE DATA INSERT CODE:
+
+INSERT INTO Zip (ZipCode, Country, Region, City) VALUES
+('10001', 'United States', 'New York', 'New York'),
+('90210', 'United States', 'California', 'Beverly Hills'),
+('60601', 'United States', 'Illinois', 'Chicago'),
+('33101', 'United States', 'Florida', 'Miami'),
+('75201', 'United States', 'Texas', 'Dallas'),
+('94102', 'United States', 'California', 'San Francisco'),
+('02108', 'United States', 'Massachusetts', 'Boston'),
+('80202', 'United States', 'Colorado', 'Denver'),
+('98101', 'United States', 'Washington', 'Seattle'),
+('30301', 'United States', 'Georgia', 'Atlanta'),
+('2000', 'Australia', 'New South Wales', 'Sydney'),
+('3000', 'Australia', 'Victoria', 'Melbourne'),
+('4000', 'Australia', 'Queensland', 'Brisbane'),
+('5000', 'Australia', 'South Australia', 'Adelaide'),
+('6000', 'Australia', 'Western Australia', 'Perth'),
+('85001', 'United States', 'Arizona', 'Phoenix'),
+('19102', 'United States', 'Pennsylvania', 'Philadelphia'),
+('43201', 'United States', 'Ohio', 'Columbus'),
+('48201', 'United States', 'Michigan', 'Detroit'),
+('20001', 'United States', 'District of Columbia', 'Washington'),
+('70001', 'United States', 'Louisiana', 'Metairie'),
+('89101', 'United States', 'Nevada', 'Las Vegas'),
+('97201', 'United States', 'Oregon', 'Portland'),
+('37201', 'United States', 'Tennessee', 'Nashville'),
+('55401', 'United States', 'Minnesota', 'Minneapolis'),
+('2600', 'Australia', 'ACT', 'Canberra'),
+('7000', 'Australia', 'Tasmania', 'Hobart'),
+('0800', 'Australia', 'Northern Territory', 'Darwin'),
+('64101', 'United States', 'Missouri', 'Kansas City'),
+('46201', 'United States', 'Indiana', 'Indianapolis');
+
+INSERT INTO CustomerAddress (CustomerAddressID, CustomerAddressStreet, CustomerAddressStreetNum, CustomerAddressZip) VALUES
+(482930, 'Rodeo Drive', 421, '90210'),
+(102938, 'Canon Drive', 712, '90210'),
+(556473, 'Lomitas Avenue', 1105, '90210'),
+(827364, 'Alpine Drive', 804, '90210'),
+(192837, 'Bedford Drive', 516, '90210'),
+(475869, 'Camden Drive', 625, '90210'),
+(334455, 'Elevado Avenue', 902, '90210'),
+(998877, 'Foothill Road', 1240, '90210'),
+(221133, 'Linden Drive', 709, '90210'),
+(665544, 'Maple Drive', 815, '90210'),
+(774411, 'Palm Drive', 503, '90210'),
+(123546, 'Rexford Drive', 618, '90210'),
+(889900, 'Sierra Drive', 722, '90210'),
+(445566, 'Walden Drive', 935, '90210'),
+(112233, 'Carmelita Avenue', 1010, '90210'),
+(990011, 'Beverly Drive', 455, '90210'),
+(332211, 'Crescent Drive', 312, '90210'),
+(554433, 'Dayton Way', 9440, '90210'),
+(778899, 'Brighton Way', 9520, '90210'),
+(667788, 'Alta Drive', 801, '90210'),
+(223344, 'Arden Drive', 606, '90210'),
+(446688, 'Hillcrest Road', 1175, '90210'),
+(101020, 'Mountain Drive', 1005, '90210'),
+(302010, 'Sunset Boulevard', 9641, '90210'),
+(506070, 'Benedict Canyon Drive', 2500, '90210'),
+(807060, 'Tower Road', 1120, '90210'),
+(905040, 'Coldwater Canyon Drive', 1405, '90210'),
+(204060, 'Lexington Road', 812, '90210'),
+(705030, 'Greenway Drive', 901, '90210'),
+(105090, 'Oxford Way', 1215, '90210');
+(582914, 'Via Dante', 14, '20121');
+
+INSERT INTO DeliveryAddress (DeliveryAddressID, DeliveryAddressStreet, DeliveryAddressStreetNum, DeliveryAddressZip) VALUES
+(293847, 'Loma Vista Drive', 1125, '90210'),
+(847561, 'Doheny Road', 501, '90210'),
+(102948, 'Bowmont Drive', 2410, '90210'),
+(667382, 'Deep Canyon Drive', 1805, '90210'),
+(550493, 'Wallace Ridge', 1300, '90210'),
+(384756, 'Carla Ridge', 1185, '90210'),
+(928374, 'Schuyler Road', 912, '90210'),
+(475610, 'Robert Lane', 1004, '90210'),
+(119283, 'Trousdale Estates', 425, '90210'),
+(663322, 'Chalette Drive', 510, '90210'),
+(774859, 'Arkell Drive', 1401, '90210'),
+(203948, 'Lania Lane', 1210, '90210'),
+(884756, 'Summit Drive', 1100, '90210'),
+(449302, 'Pickfair Way', 1143, '90210'),
+(556677, 'Angelo Drive', 1280, '90210'),
+(123847, 'Brooktree Road', 605, '90210'),
+(904857, 'Heather Road', 955, '90210'),
+(334411, 'Dutton Drive', 814, '90210'),
+(775599, 'Hidden Valley Road', 2505, '90210'),
+(662288, 'Franklin Canyon Drive', 1900, '90210'),
+(229944, 'Kimridge Road', 1420, '90210'),
+(441188, 'Claridge Drive', 1015, '90210'),
+(109020, 'San Ysidro Drive', 1602, '90210'),
+(308010, 'Tower Grove Drive', 1220, '90210'),
+(502070, 'Waring Avenue', 445, '90210'),
+(801060, 'Gregory Way', 315, '90210'),
+(902040, 'Charleville Boulevard', 9420, '90210'),
+(203060, 'Lasky Drive', 105, '90210'),
+(701030, 'Spalding Drive', 222, '90210'),
+(107090, 'Oakhurst Drive', 418, '90210');
+
+INSERT INTO SupplierAddress (SupplierAddressID, SupplierAddressStreet, SupplierAddressStreetNum, SupplierAddressZip) VALUES
+(314256, 'Carla Lane', 1018, '90210'),
+(827319, 'Bundy Drive', 1540, '90210'),
+(665102, 'Ambassador Avenue', 1001, '90210'),
+(449281, 'Shadow Hill Way', 1225, '90210'),
+(510293, 'Wallace Ridge', 1350, '90210'),
+(883746, 'Dona Marina Drive', 3105, '90210'),
+(192830, 'Deep Canyon Drive', 2112, '90210'),
+(774123, 'Coldwater Canyon Drive', 1845, '90210'),
+(556201, 'Kimridge Road', 1390, '90210'),
+(304928, 'Bowmont Drive', 2555, '90210'),
+(495817, 'Lania Lane', 1288, '90210'),
+(202134, 'San Ysidro Drive', 1701, '90210'),
+(993847, 'Tower Grove Drive', 1140, '90210'),
+(440011, 'Heather Road', 9210, '90210'),
+(667123, 'Hidden Valley Road', 2480, '90210'),
+(129485, 'Cielo Drive', 10050, '90210'),
+(338271, 'Benedict Canyon Drive', 2615, '90210'),
+(772109, 'Hutton Drive', 1905, '90210'),
+(884102, 'Beverly Estate Drive', 1201, '90210'),
+(559182, 'Loma Vista Drive', 1195, '90210'),
+(443322, 'Doheny Road', 412, '90210'),
+(221199, 'Sierra Drive', 802, '90210'),
+(664433, 'Palm Drive', 615, '90210'),
+(779900, 'Maple Drive', 710, '90210'),
+(102030, 'Linden Drive', 505, '90210'),
+(405060, 'Roxbury Drive', 915, '90210'),
+(809010, 'Bedford Drive', 601, '90210'),
+(204080, 'Peck Drive', 335, '90210'),
+(706050, 'Canon Drive', 422, '90210'),
+(901020, 'Beverly Drive', 210, '90210');
+
+INSERT INTO Supplier (SupplierID, SupplierName, SupplierPhone, SupplierAddressIDCode) VALUES
+(482910, 'Apex Logistics Solutions', 31550192, 556201),
+(102938, 'Golden Gate Wholesale', 21358821, 556201),
+(556473, 'Summit Manufacturing', 32355732, 556201),
+(827364, 'Pacific Rim Imports', 41555012, 556201),
+(192837, 'Blue Horizon Textiles', 81852345, 556201),
+(475869, 'Beverly Hills Tech Corp', 31557766, 556201),
+(334455, 'Emerald City Trading', 20655122, 556201),
+(998877, 'Starlight Distribution', 71558899, 556201),
+(221133, 'Precision Parts Inc', 61955344, 556201),
+(665544, 'Coastal Supply Co', 80555577, 556201),
+(774411, 'NextGen Electronics', 40850011, 556201),
+(123546, 'Global Reach Freight', 51052233, 556201),
+(889900, 'Mainland Materials', 91655455, 556201),
+(112233, 'North Star Industrial', 61257788, 556201),
+(990011, 'Desert Springs Water', 60255500, 556201),
+(332211, 'Empire State Sourcing', 21251100, 556201),
+(554433, 'Windy City Hardware', 31252299, 556201),
+(778899, 'Lone Star Steel', 51255388, 556201),
+(667788, 'Peach State Produce', 45554477, 556201),
+(223344, 'Evergreen Forestry', 55555566, 556201),
+(446688, 'Bayou Beverage Group', 55556655, 556201),
+(101020, 'Silver State Mining', 75557744, 556201),
+(302010, 'Cascade Equipment', 25558833, 556201),
+(506070, 'Sunshine State Citrus', 55559922, 556201),
+(807060, 'Rocky Mountain Gear', 35551010, 556201),
+(905040, 'Gateway City Freight', 45552020, 556201),
+(204060, 'Liberty Bell Fabrics', 55553030, 556201),
+(705030, 'Old Dominion Paper', 45554040, 556201),
+(105090, 'Great Lakes Glass', 35555050, 556201),
+(339922, 'Canyon Rim Partners', 15556060, 556201);
+
+INSERT INTO DeliveryService (DeliveryServiceID, DeliveryServiceName, DeliveryServicePhone, DeliveryAddressIDCode) VALUES
+(219485, 'SwiftStream Logistics', 31051029, 123847),
+(774821, 'Velox Parcel Services', 21359930, 123847),
+(550192, 'HyperLink Couriers', 32355582, 123847),
+(837261, 'DirectRoute Freight', 41555721, 123847),
+(192038, 'Blue Dart Deliveries', 81853344, 123847),
+(476102, '90210 Express Mail', 31055510, 123847),
+(339485, 'City-to-City Haulage', 20651212, 123847),
+(991122, 'NextDay Global Trans', 71454433, 123847),
+(228374, 'Point-B Logistics', 61955509, 123847),
+(661029, 'Pacific West Cargo', 80555561, 123847),
+(775533, 'RapidResponse Dispatch', 40552020, 123847),
+(120394, 'Gold Star Trucking', 51055531, 123847),
+(884712, 'MileHigh Courier Co', 91655242, 123847),
+(119933, 'Interstate Expeditors', 61255353, 123847),
+(998811, 'Red Zone Transport', 60255564, 123847),
+(331100, 'IronClad Shipping', 21255575, 123847),
+(552288, 'Windy City Couriers', 31255686, 123847),
+(773399, 'Lone Star Logistics', 51255797, 123847),
+(664477, 'Southern Cross Freight', 40550808, 123847),
+(225544, 'Northwest Cargo Link', 50351919, 123847),
+(447766, 'Bayou Rapid Transit', 50455030, 123847),
+(108822, 'Silver State Express', 70254141, 123847),
+(301144, 'Peak Performance Mail', 25355252, 123847),
+(509977, 'Sunshine State Deliver', 30556363, 123847),
+(802266, 'Alpine Logistics Group', 30557474, 123847),
+(904433, 'Midwest Haulage Co', 31455585, 123847),
+(206655, 'Liberty Bell Logistics', 21559696, 123847),
+(708844, 'Commonwealth Cargo', 80455507, 123847),
+(103366, 'Great Lakes Dispatch', 31351818, 123847),
+(337711, 'Canyon View Couriers', 80152929, 123847);
+
+INSERT INTO Customer (CustomerID, CustomerFirstName, CustomerSecondName, CustomerLastName, CustomerPhone, CustomerAddressIDCode) VALUES
+(829401, 'Giovanni', 'Battista', 'Moretti', 390555301, 582914),
+(789234, 'Barry', 'The', 'Bot', 720137410, 582914),
+(104928, 'Antonio', 'Pasquale', 'Esposito', 390555302, 582914),
+(556102, 'Vincenzo', 'Domenico', 'Ricci', 390255303, 582914),
+(339481, 'Salvatore', 'Angelo', 'Marino', 390255304, 582914),
+(771122, 'Stefano', 'Roberto', 'Greco', 390255305, 582914),
+(228375, 'Giuseppe', 'Franco', 'Bruno', 390255306, 582914),
+(661030, 'Claudio', 'Massimo', 'Gallo', 390255307, 582914),
+(775534, 'Daniele', 'Enrico', 'Conti', 390255508, 582914),
+(120395, 'Fabrizio', 'Paolo', 'De Luca', 390255309, 582914),
+(884713, 'Gianluca', 'Sandro', 'Mancini', 390255310, 582914),
+(119934, 'Carmine', 'Renato', 'Costa', 390255311, 582914),
+(998812, 'Pasquale', 'Gino', 'Giordano', 39025512, 582914),
+(331101, 'Giorgio', 'Filippo', 'Rizzo', 390255513, 582914),
+(552289, 'Raffaele', 'Umberto', 'Lombardi', 392555314, 582914),
+(773398, 'Pietro', 'Rosario', 'Barbieri', 390555315, 582914),
+(664476, 'Emilio', 'Cesare', 'Fontana', 390255316, 582914),
+(225545, 'Augusto', 'Tullio', 'Santoro', 392555317, 582914),
+(447767, 'Mauro', 'Silvio', 'Mariani', 390555318, 582914),
+(108823, 'Flavio', 'Valerio', 'Rinaldi', 390255319, 582914),
+(301145, 'Giacomo', 'Ettore', 'Caruso', 390255320, 582914),
+(509978, 'Luciano', 'Nico', 'Ferraro', 390255321, 582914),
+(802267, 'Enzo', 'Ottavio', 'Valli', 390255522, 582914),
+(904434, 'Paolo', 'Santi', 'Guerra', 390255323, 582914),
+(206656, 'Renzo', 'Ivano', 'Pellegrini', 302555324, 582914),
+(708845, 'Aldo', 'Nino', 'Sanna', 390255525, 582914),
+(103367, 'Bruno', 'Alfonso', 'Farina', 302555326, 582914),
+(337712, 'Carlo', 'Arturo', 'Ferrero', 902555327, 582914),
+(441122, 'Dario', 'Duccio', 'Serra', 390255328, 582914),
+(558899, 'Fausto', 'Lio', 'Vitale', 390255329, 582914),
+(663300, 'Igor', 'Zeno', 'Messina', 390555330, 582914);
+
+INSERT INTO Item (ItemID, ItemName, ItemSupplierID, ItemCategory, ItemLeft, ItemCost) VALUES
+(592831, 'Silk Egyptian Sheets', 112233, 'Bedding', 142, 450),
+(102948, 'Smart Espresso Machine', 112233, 'Appliances', 45, 1200),
+(884729, 'Teak Outdoor Lounge', 112233, 'Furniture', 12, 3400),
+(334102, 'Crystal Stemware Set', 112233, 'Kitchenware', 89, 250),
+(771029, 'Noise-Cancelling Headphones', 112233, 'Electronics', 230, 350),
+(550192, 'Cashmere Throw Blanket', 112233, 'Home Decor', 67, 180),
+(219384, 'Professional Chef Knife', 112233, 'Kitchenware', 156, 125),
+(667102, 'Velvet Occasional Chair', 112233, 'Furniture', 8, 890),
+(440293, 'Smart Home Hub', 112233, 'Electronics', 412, 199),
+(119283, 'Aromatic Soy Candle', 112233, 'Home Decor', 850, 45),
+(903847, 'Electric Stand Mixer', 112233, 'Appliances', 34, 550),
+(482716, 'Goose Down Duvet', 112233, 'Bedding', 22, 600),
+(773322, 'Ergonomic Office Chair', 112233, 'Furniture', 56, 1100),
+(120394, 'Bluetooth Surround Bar', 112233, 'Electronics', 115, 800),
+(884712, 'Cast Iron Dutch Oven', 112233, 'Kitchenware', 94, 280),
+(556611, 'Organic Cotton Towels', 112233, 'Bath', 540, 75),
+(339485, 'Dimmable Floor Lamp', 112233, 'Lighting', 43, 320),
+(991122, 'Porcelain Dinnerware Set', 112233, 'Kitchenware', 31, 450),
+(228374, 'Stainless Steel Air Fryer', 112233, 'Appliances', 128, 220),
+(661029, 'Memory Foam Mattress', 112233, 'Bedding', 14, 2500),
+(775533, 'Smart Door Lock', 112233, 'Electronics', 204, 299),
+(120395, 'Hand-Woven Area Rug', 112233, 'Home Decor', 9, 4200),
+(884713, 'Copper Cookware Set', 112233, 'Kitchenware', 18, 1500),
+(119934, 'Air Purifying System', 112233, 'Appliances', 65, 450),
+(998811, 'Abstract Oil Painting', 112233, 'Home Decor', 5, 4800),
+(331100, 'Adjustable Standing Desk', 112233, 'Furniture', 27, 1350),
+(552288, 'Cordless Stick Vacuum', 112233, 'Appliances', 82, 700),
+(773399, 'Smart Garden Planter', 112233, 'Garden', 150, 160),
+(664477, 'Crystal Chandelier', 112233, 'Lighting', 3, 4950),
+(225544, 'Wine Cellar Cooling Unit', 112233, 'Appliances', 7, 3200);
+
+INSERT INTO Sale (SaleID, SaleCustomerID, SaleDeliveryServiceID) VALUES
+(192837, 108823, 331100),
+(475869, 108823, 331100),
+(334455, 108823, 331100),
+(998877, 108823, 331100),
+(221133, 108823, 331100),
+(665544, 108823, 331100),
+(774411, 108823, 331100),
+(123546, 108823, 331100),
+(889900, 108823, 331100),
+(112233, 108823, 331100),
+(990011, 108823, 331100),
+(332211, 108823, 331100),
+(554433, 108823, 331100),
+(778899, 108823, 331100),
+(667788, 108823, 331100),
+(223344, 108823, 331100),
+(446688, 108823, 331100),
+(101020, 108823, 331100),
+(302010, 108823, 331100),
+(506070, 108823, 331100),
+(807060, 108823, 331100),
+(905040, 108823, 331100),
+(204060, 108823, 331100),
+(705030, 108823, 331100),
+(105090, 108823, 331100),
+(339922, 108823, 331100),
+(415263, 108823, 331100),
+(987654, 108823, 331100),
+(123456, 108823, 331100),
+(654321, 108823, 331100);
+
+INSERT INTO Receipt (ReceiptSaleID, ReceiptItemID, ReceiptItemCount) VALUES
+(665544, 592831, 2),
+(665544, 102948, 1),
+(665544, 884729, 4),
+(665544, 334102, 5),
+(665544, 771029, 2),
+(665544, 550192, 3),
+(665544, 219384, 1),
+(665544, 667102, 1),
+(665544, 440293, 5),
+(665544, 119283, 4),
+(665544, 903847, 1),
+(665544, 482716, 2),
+(665544, 773322, 3),
+(665544, 120394, 1),
+(665544, 884712, 5),
+(665544, 556611, 4),
+(665544, 339485, 2),
+(665544, 991122, 3),
+(665544, 228374, 1),
+(665544, 661029, 2),
+(665544, 775533, 5),
+(665544, 120395, 1),
+(665544, 884713, 2),
+(665544, 119934, 1),
+(665544, 998811, 1),
+(665544, 331100, 3),
+(665544, 552288, 1),
+(665544, 773399, 4),
+(665544, 664477, 1),
+(665544, 225544, 1);
+
+QUERY CODE:
+
+SELECT CustomerAddress.CustomerAddressID, CustomerAddress.CustomerAddressStreet, CustomerAddress.CustomerAddressStreetNum, CustomerAddress.CustomerAddressZip, CustomerFirstName, CustomerSecondName, CustomerLastName, CustomerPhone, Zip.Country, Zip.Region, Zip.City, CustomerAddressIDCode
+FROM Customer
+INNER JOIN CustomerAddress ON CustomerAddress.CustomerAddressID = Customer.CustomerAddressIDCode
+INNER JOIN Zip ON Zip.ZipCode = CustomerAddress.CustomerAddressZip;
+
+SELECT DISTINCT Country
+FROM Zip;
+
+SELECT CustomerFirstName, CustomerSecondName, CustomerLastName, CustomerID
+FROM Customer
+WHERE CustomerLastName LIKE '%ot%'
+
+SELECT CustomerFirstName, CustomerSecondName, CustomerLastName, Sale.SaleID, Zip.Country, Sale.SaleCustomerID, CustomerAddress.CustomerAddressID, CustomerAddress.CustomerAddressZip, Zip.ZipCode, Sale.SaleCustomerID, CustomerAddressIDCode
+FROM Customer
+INNER JOIN CustomerAddress ON CustomerAddress.CustomerAddressID = Customer.CustomerAddressIDCode
+INNER JOIN Zip ON Zip.ZipCode = CustomerAddress.CustomerAddressZip
+INNER JOIN Sale ON Sale.SaleCustomerID = Customer.CustomerID
+WHERE Zip.Country LIKE 'Italy'
+
+SELECT ItemID, ItemName, ItemCost,
+        CASE
+                WHEN ItemCost > 100 AND ItemCost < 200 THEN ItemCost*0.9
+        END AS ItemCostAfterDiscount
+FROM Item
+WHERE ItemCost > 100 AND ItemCost < 200

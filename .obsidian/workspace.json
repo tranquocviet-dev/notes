@@ -1,0 +1,247 @@
+{
+  "main": {
+    "id": "bd8c428f95f4cecb",
+    "type": "split",
+    "children": [
+      {
+        "id": "71e12ea9aaf52284",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2044192a3f407421",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MATH1179/05 Relationships.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "05 Relationships"
+            }
+          },
+          {
+            "id": "961a28993410a783",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MATH1179/01 Sets.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01 Sets"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "446e87bb187fb6fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "a9da8c803a2ead66",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a842c3a25464b842",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e3d604ac07d036d6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f949aed133427c6b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "217996a66cc0cab5",
+            "type": "leaf",
+            "state": {
+              "type": "typst-tools",
+              "state": {},
+              "icon": "typst-stroke",
+              "title": "Typst Tools"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ba43eb935adec1eb",
+    "type": "split",
+    "children": [
+      {
+        "id": "1336dcbae1d201fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a7e0695eb9d95bf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "PEOPLE/Tran Quoc Viet.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Tran Quoc Viet"
+            }
+          },
+          {
+            "id": "eb82031ecdbf18d5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "PEOPLE/Tran Quoc Viet.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Tran Quoc Viet"
+            }
+          },
+          {
+            "id": "8500a482f4eef225",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d2ec2c9b761f7248",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e0932071e6e984cf",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "PEOPLE/Tran Quoc Viet.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Tran Quoc Viet"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "2044192a3f407421",
+  "lastOpenFiles": [
+    "MATH1179/04 Logic.md",
+    "MATH1179/03 Trigonometry and Algebra.md",
+    "MATH1179/01 Sets.md",
+    "MATH1179.md",
+    "Elevator.md",
+    "Index.md",
+    "MATH1179/02 Numbers.md",
+    "MATH1179/06 Matrix and Vectors.md",
+    "MATH1179/05 Relationships.md",
+    "MATH1179/man base-n.md",
+    "MATH1179/05 Function Mapping.md",
+    "2026-03-19_justincase.org",
+    "MATH1179/man logic.md",
+    "MATH1179/man trigonometry.md",
+    "MATH1179/man significant figures.md",
+    "MATH1179/man set.md",
+    "MATH1179/man estimation.md",
+    "Untitled.md",
+    "PEOPLE/NATH.md",
+    "06 Relationships.md",
+    "Pasted image 20260318191725.png",
+    "Pasted image 20260318191713.png",
+    "test.typ",
+    "2026-03-03_valentine.typ",
+    "2026-03-03_valentine.pdf",
+    "2026-03-03_MATH.typ",
+    "2026-03-02_club-projects.typ",
+    "2026-03-02_club-projects.pdf",
+    "2026-02-24.typ",
+    "SYSDEV_CW.typ",
+    "MATH1179.typ",
+    "PEOPLE.md",
+    "PEOPLE/Tran Quoc Viet.md",
+    "Figure_1.png"
+  ]
+}

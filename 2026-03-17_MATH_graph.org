@@ -1,0 +1,15 @@
+* graph theory
+** what is graph?
+- a graph is a collection of subject, a graphical demonstration of the *route*
+** graph properties
+- a "move" on a graph is a *walk*
+  - if all the edges of a walk are distinct we have a *trail*
+  - if all the verticies of a walk are distinct we have a *path*
+- *length* is the measurement of how many moves a walk has
+- there is such a concept as *connectivity*
+  - a *connected* graph is a graph with no orphans
+  - a *not connected* graph is a graph with orphans
+** subgraphs
+- technically anything can become a subgraph of an already existing graph
+- *spanning trees* are subgraphs of a graph, containing every verticies of a point
+- *adjacency matrices* can be used to describe the connections of a graph and input them into a computer

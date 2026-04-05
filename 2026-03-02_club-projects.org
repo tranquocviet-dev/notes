@@ -1,0 +1,21 @@
+* Mail moi cua clb
+** dl 4/3
+* Workshop crack
+** Recap
+The workshop's goals is to provide knowledge to people about software cracking make them understand that cracking can help people with more legal activities
+** What is software cracking
+- Software cracking is the act of removing the copy protection of a software
+- It used to be known as "breaking" in the 1980s
+- It can mean many things
+  - modifying code of the original program
+  - sharing stolen keys to the program
+  - generating keys to the software through a third party program
+** Different methods of software cracking
+(going in depth into the individual methods of cracking
+*** Modifying code to bypass copy protection
+*** Sharing stolen keys to the program
+*** Keygens
+** Practical usage of software cracking knowledge
+- Not only do you learn to crack software but you also learn more about the way that software is created.
+- Learning about the vulnerabilities of the software allow you to patch them beforehand.
+** Final remarks

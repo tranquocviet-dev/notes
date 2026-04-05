@@ -1,0 +1,383 @@
+% Created 2026-03-11 Wed 23:04
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{viet}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={viet},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.2 (Org mode 9.7.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Process of Normalization}
+\label{sec:orgd0e9247}
+\subsection{Staff Table}
+\label{sec:org5517330}
+\begin{itemize}
+\item Initial Database: StaffID, StaffName, StaffNumber, StaffPhoneNumber
+\item Selecting Primary Key: StaffID
+\item First step of normalization: deleting duplicate values (StaffNumber).
+\item Second step of normalization: deleting the partial dependencies of the database (none in this case)
+\end{itemize}
+\subsection{Customer Table}
+\label{sec:orgd2a3769}
+\begin{itemize}
+\item Initial Database: CustomerID, CustomerName, CustomerAddress, CustomerZIP, CustomerPurchase
+\item Selecting Primary Key: CustomerID
+\item First step of normalization: Deleting duplicate values (none)
+\item Second step of normalization: (CustomerZIP is a partial dependency of CustomerAddress, CustomerPurchase is managed by Sale)
+\end{itemize}
+\section{Design and implementation of database system}
+\label{sec:org0ac814c}
+\subsection{Identification and creating properties of the entities}
+\label{sec:orgd2818ba}
+\subsubsection{Identification}
+\label{sec:org9316b94}
+\begin{itemize}
+\item Based on the available information on the coursework specifications, there are 3 already defined Entities, namely Customer, Item, and Suppliers.
+\item For better management of the addresses of Living entities groups, the Addresses will be stored in seperate Address Entities
+\item As per the requirement of the coursework, the database has to furthermore support the online sales management, with
+framework available to expand with delivery integration and customer service
+\begin{itemize}
+\item For sale management, a Sale and a Receipt entity will be integrated to monitor the items being brought
+\item For delivery integration, a Delivery Service entity will be created, along with its seperate Address entry
+\end{itemize}
+\end{itemize}
+\subsubsection{Properties}
+\label{sec:org5e949b9}
+\begin{itemize}
+\item Zip
+\begin{itemize}
+\item ZipCode VARCHAR
+\item Country VARCHAR
+\item Region VARCHAR
+\item City VARCHAR
+\end{itemize}
+\item CustomerAddress
+\begin{itemize}
+\item CustomerAddressID INT
+\item CustomerAddressStreet VARCHAR
+\item CustomerAddressStreetNum INT
+\item CustomerAddressZip VARCHAR FK
+\end{itemize}
+\item DeliveryAddress
+\begin{itemize}
+\item DeliveryAddressID INT
+\item DeliveryAddressStreet VARCHAR
+\item DeliveryAddressStreetNum INT
+\item DeliveryAddressZip VARCHAR FK
+\end{itemize}
+\item SupplierAddress
+\begin{itemize}
+\item SupplierAddressID INT
+\item SupplierAddressStreet VARCHAR
+\item SupplierAddressStreetNum INT
+\item SupplierAddressZip VARCHAR FK
+\end{itemize}
+\item Customer
+\begin{itemize}
+\item CustomerID INT PK
+\item CustomerName VARCHAR
+\item CustomerPhone INT
+\item CustomerAddressIDCode INT FK
+\end{itemize}
+\item Supplier
+\begin{itemize}
+\item SupplierID INT PK
+\item SupplierName VARCHAR
+\item SupplierPhone INT
+\item SupplierAddressIDCode INT FK
+\end{itemize}
+\item DeliveryService
+\begin{itemize}
+\item DeliveryServiceID INT PK
+\item DeliveryServiceName VARCHAR
+\item DeliveryServicePhone INT
+\item DeliveryServiceAddressIDCode INT FK
+\end{itemize}
+\item Item
+\begin{itemize}
+\item ItemID INT PK
+\item ItemName VARCHAR
+\item ItemSupplierID INT FK
+\item ItemCategory VARCHAR
+\item ItemLeft INT
+\item ItemCost INT
+\end{itemize}
+\item Sale
+\begin{itemize}
+\item SaleID INT PK
+\item SaleCustomerID INT FK
+\item SaleDeliveryServiceID INT FK
+\end{itemize}
+\item Receipt
+\begin{itemize}
+\item ReceiptSaleID INT FK
+\item ReceiptItemID INT FK
+\item ReceiptItemCount INT
+\end{itemize}
+\end{itemize}
+\subsection{ER Diagram}
+\label{sec:org65f6ece}
+\subsection{3rd Normalization Form Process}
+\label{sec:orge3cf6f9}
+\begin{itemize}
+\item Customer Table
+\begin{itemize}
+\item 1st Normal Form: No Redundant Data (No Duplicate Values): The Customer Table has no duplicate values and no values as part of another value set
+\item 2nd Normal Form: Clear Data Relationships: The Customer table has clear relationships with other tables
+\item 3rd Normal Form: Remove Anomalies: The Customer Table has no partial dependencies, and no stray values from other tables.
+\end{itemize}
+\item Item Table
+\begin{itemize}
+\item 1st Normal Form: No Redundant Data (No Duplicate Values): The Item Table has no duplicate values and no values as part of another value set
+\item 2nd Normal Form: Clear Data Relationships: The Item table has clear relationships with other tables
+\item 3rd Normal Form: Remove Anomalies: The Item Table has no partial dependencies, and no stray values from other tables.
+\end{itemize}
+\item Supplier Table
+\begin{itemize}
+\item 1st Normal Form: No Redundant Data (No Duplicate Values): The Supplier Table has no duplicate values and no values as part of another value set
+\item 2nd Normal Form: Clear Data Relationships: The Supplier table has clear relationships with other tables
+\item 3rd Normal Form: Remove Anomalies: The Supplier Table has no partial dependencies, and no stray values from other tab
+\end{itemize}
+\end{itemize}
+\subsection{SQL Result:}
+\label{sec:org39e3bad}
+\begin{center}
+\includegraphics[width=.9\linewidth]{/home/viet/Captures/2026-03-11_22-56.png}
+\end{center}
+\subsubsection{Source code for the table:}
+\label{sec:org62efe78}
+\begin{center}
+\begin{verbatim}
+CREATE TABLE Zip
+(
+    ZipCode VARCHAR(128) NOT NULL PRIMARY KEY,
+    Country VARCHAR(128),
+    Region VARCHAR(128),
+    City VARCHAR(128)1
+);
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE CustomerAddress
+(
+    CustomerAddressID INT NOT NULL PRIMARY KEY,
+    CustomerAddressStreet VARCHAR(128),
+    CustomerAddressStreetNum INT(128),
+    CustomerAddressZip VARCHAR(128),
+    FOREIGN KEY (CustomerAddressZip) REFERENCES Zip(ZipCode)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE DeliveryAddress
+(
+    DeliveryAddressID INT NOT NULL PRIMARY KEY,
+    DeliveryAddressStreet VARCHAR(128),
+    DeliveryAddressStreetNum INT(128),
+    DeliveryAddressZip VARCHAR(128),
+    FOREIGN KEY (DeliveryAddressZip) REFERENCES Zip(ZipCode)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE SupplierAddress
+(
+    SupplierAddressID INT NOT NULL PRIMARY KEY,
+    SupplierAddressStreet VARCHAR(128),
+    SupplierAddressStreetNum INT(128),
+    SupplierAddressZip VARCHAR(128),
+    FOREIGN KEY (SupplierAddressZip) REFERENCES Zip(ZipCode)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE Customer
+(
+    CustomerID INT NOT NULL PRIMARY KEY,
+    CustomerName VARCHAR(128),
+    CustomerPhone INT(128),
+    CustomerAddressIDCode INT,
+    FOREIGN KEY (CustomerAddressIDCode) REFERENCES CustomerAddress(CustomerAddressID)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE Supplier
+(
+    SupplierID INT NOT NULL PRIMARY KEY,
+    SupplierName VARCHAR(128),
+    SupplierPhone INT(128),
+    SupplierAddressIDCode INT,
+    FOREIGN KEY (SupplierAddressIDCode) REFERENCES SupplierAddress(SupplierAddressID)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE Item
+(
+    ItemID INT NOT NULL PRIMARY KEY,
+    ItemName VARCHAR(128),
+    ItemSupplierID INT(128),
+    ItemCategory VARCHAR(128),
+    ItemLeft INT(128),
+    ItemCost INT(128),
+    CONSTRAINT SupplierID FOREIGN KEY (ItemSupplierID)
+    REFERENCES Supplier(SupplierID)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE DeliveryService
+(
+    DeliveryServiceID INT NOT NULL PRIMARY KEY,
+    DeliveryServiceName VARCHAR(128),
+    DeliveryServicePhone INT(128),
+    DeliveryAddressIDCode INT,
+    FOREIGN KEY (DeliveryAddressIDCode) REFERENCES DeliveryAddress(DeliveryAddressID)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE Sale
+(
+    SaleID INT NOT NULL PRIMARY KEY,
+    SaleCustomerID INT,
+    SaleDeliveryServiceID INT,
+    FOREIGN KEY (SaleCustomerID) REFERENCES Customer(CustomerID),
+    FOREIGN KEY (SaleDeliveryServiceID) REFERENCES DeliveryService(DeliveryServiceID)
+);
+
+\end{verbatim}
+\begin{verbatim}
+CREATE TABLE Receipt
+(
+    ReceiptSaleID INT,
+    ReceiptItemID INT,
+    ReceiptItemCount INT(128),
+    FOREIGN KEY (ReceiptSaleID) REFERENCES Sale(SaleID),
+    FOREIGN KEY (ReceiptItemID) REFERENCES Item(ItemID)
+);
+\end{verbatim}
+\end{center}
+\subsection{SQL Insert Code:}
+\label{sec:org7accd65}
+\begin{verbatim}
+INSERT INTO Zip (ZipCode, Country, Region, City) VALUES
+('10001', 'United States', 'New York', 'New York'),
+('90210', 'United States', 'California', 'Beverly Hills'),
+('60601', 'United States', 'Illinois', 'Chicago'),
+('33101', 'United States', 'Florida', 'Miami'),
+('75201', 'United States', 'Texas', 'Dallas'),
+('94102', 'United States', 'California', 'San Francisco'),
+('02108', 'United States', 'Massachusetts', 'Boston'),
+('80202', 'United States', 'Colorado', 'Denver'),
+('98101', 'United States', 'Washington', 'Seattle'),
+('30301', 'United States', 'Georgia', 'Atlanta'),
+('2000', 'Australia', 'New South Wales', 'Sydney'),
+('3000', 'Australia', 'Victoria', 'Melbourne'),
+('4000', 'Australia', 'Queensland', 'Brisbane'),
+('5000', 'Australia', 'South Australia', 'Adelaide'),
+('6000', 'Australia', 'Western Australia', 'Perth'),
+('85001', 'United States', 'Arizona', 'Phoenix'),
+('19102', 'United States', 'Pennsylvania', 'Philadelphia'),
+('43201', 'United States', 'Ohio', 'Columbus'),
+('48201', 'United States', 'Michigan', 'Detroit'),
+('20001', 'United States', 'District of Columbia', 'Washington'),
+('70001', 'United States', 'Louisiana', 'Metairie'),
+('89101', 'United States', 'Nevada', 'Las Vegas'),
+('97201', 'United States', 'Oregon', 'Portland'),
+('37201', 'United States', 'Tennessee', 'Nashville'),
+('55401', 'United States', 'Minnesota', 'Minneapolis'),
+('2600', 'Australia', 'ACT', 'Canberra'),
+('7000', 'Australia', 'Tasmania', 'Hobart'),
+('0800', 'Australia', 'Northern Territory', 'Darwin'),
+('64101', 'United States', 'Missouri', 'Kansas City'),
+('46201', 'United States', 'Indiana', 'Indianapolis');
+\end{verbatim}
+\begin{verbatim}
+
+INSERT INTO CustomerAddress (CustomerAddressID, CustomerAddressStreet, CustomerAddressStreetNum, CustomerAddressZip) VALUES
+(482930, 'Rodeo Drive', 421, '90210'),
+(102938, 'Canon Drive', 712, '90210'),
+(556473, 'Lomitas Avenue', 1105, '90210'),
+(827364, 'Alpine Drive', 804, '90210'),
+(192837, 'Bedford Drive', 516, '90210'),
+(475869, 'Camden Drive', 625, '90210'),
+(334455, 'Elevado Avenue', 902, '90210'),
+(998877, 'Foothill Road', 1240, '90210'),
+(221133, 'Linden Drive', 709, '90210'),
+(665544, 'Maple Drive', 815, '90210'),
+(774411, 'Palm Drive', 503, '90210'),
+(123546, 'Rexford Drive', 618, '90210'),
+(889900, 'Sierra Drive', 722, '90210'),
+(445566, 'Walden Drive', 935, '90210'),
+(112233, 'Carmelita Avenue', 1010, '90210'),
+(990011, 'Beverly Drive', 455, '90210'),
+(332211, 'Crescent Drive', 312, '90210'),
+(554433, 'Dayton Way', 9440, '90210'),
+(778899, 'Brighton Way', 9520, '90210'),
+(667788, 'Alta Drive', 801, '90210'),
+(223344, 'Arden Drive', 606, '90210'),
+(446688, 'Hillcrest Road', 1175, '90210'),
+(101020, 'Mountain Drive', 1005, '90210'),
+(302010, 'Sunset Boulevard', 9641, '90210'),
+(506070, 'Benedict Canyon Drive', 2500, '90210'),
+(807060, 'Tower Road', 1120, '90210'),
+(905040, 'Coldwater Canyon Drive', 1405, '90210'),
+(204060, 'Lexington Road', 812, '90210'),
+(705030, 'Greenway Drive', 901, '90210'),
+(105090, 'Oxford Way', 1215, '90210');
+\end{verbatim}
+\begin{verbatim}
+
+INSERT INTO DeliveryAddress (DeliveryAddressID, DeliveryAddressStreet, DeliveryAddressStreetNum, DeliveryAddressZip) VALUES
+(293847, 'Loma Vista Drive', 1125, '90210'),
+(847561, 'Doheny Road', 501, '90210'),
+(102948, 'Bowmont Drive', 2410, '90210'),
+(667382, 'Deep Canyon Drive', 1805, '90210'),
+(550493, 'Wallace Ridge', 1300, '90210'),
+(384756, 'Carla Ridge', 1185, '90210'),
+(928374, 'Schuyler Road', 912, '90210'),
+(475610, 'Robert Lane', 1004, '90210'),
+(119283, 'Trousdale Estates', 425, '90210'),
+(663322, 'Chalette Drive', 510, '90210'),
+(774859, 'Arkell Drive', 1401, '90210'),
+(203948, 'Lania Lane', 1210, '90210'),
+(884756, 'Summit Drive', 1100, '90210'),
+(449302, 'Pickfair Way', 1143, '90210'),
+(556677, 'Angelo Drive', 1280, '90210'),
+(123847, 'Brooktree Road', 605, '90210'),
+(904857, 'Heather Road', 955, '90210'),
+(334411, 'Dutton Drive', 814, '90210'),
+(775599, 'Hidden Valley Road', 2505, '90210'),
+(662288, 'Franklin Canyon Drive', 1900, '90210'),
+(229944, 'Kimridge Road', 1420, '90210'),
+(441188, 'Claridge Drive', 1015, '90210'),
+(109020, 'San Ysidro Drive', 1602, '90210'),
+(308010, 'Tower Grove Drive', 1220, '90210'),
+(502070, 'Waring Avenue', 445, '90210'),
+(801060, 'Gregory Way', 315, '90210'),
+(902040, 'Charleville Boulevard', 9420, '90210'),
+(203060, 'Lasky Drive', 105, '90210'),
+(701030, 'Spalding Drive', 222, '90210'),
+(107090, 'Oakhurst Drive', 418, '90210');
+\end{verbatim}
+\end{document}

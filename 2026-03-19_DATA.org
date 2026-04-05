@@ -1,0 +1,23 @@
+* Intro to machine learning
+- The essence of machine learning is learning, not machine
+- The machine actually behind the process of learning is a tensor, the smallest learning unit of a machine learning algorithm
+- Deep learning is a subset of machine learning that focusses on using advanced methods to gather data
+- The keyword of the Input is "Learning", the keyword of the Output is "Predicting"
+
+** Using AI effectively
+
+** Types of Machine Learning
+- Supervised: Learn from labelled data to make predictions
+- Unsupervised: Find Patterns in labelled data
+- Semi-supervised learning: A mix of the two above
+- Reinforcement Learning: Learn by trying different methods (trial and error)
+
+*** Supervised learning
+- Requires Labeled data (preprocessing)
+- Used for classification and regression tasks
+
+*** Unsupervised Learning
+- No labeled data required (no preprocessing)
+- Used for clustering and dimensionality reduction tasks
+
+*** ML in medicine

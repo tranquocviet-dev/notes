@@ -1,0 +1,20 @@
+* Relationships
+** Sets and relationsips
+Set mappings and connect sets using arrows to demonstrate relationships. The arrows can point to a specific entry inside the set or the entire set at once
+*** cartesian product
+all possible pairings of a set
+*** more relationship types
+- many to one
+- one to one
+- one to many
+- many to many
+  there is no none. if there is none there exist no connections
+*** relationship mapping
+- a database is created to store the database's relationships
+- you can query using relationships
+*** functions vs mappings
+- all functions are mappings, but not all mappings are functions
+- functions are one to one relationships, mappings have many type of relationships. they are *NOT* the same
+*** nesting
+- nesting is just stacking functions on top of eachother
+- recursion is just something pointing to itself

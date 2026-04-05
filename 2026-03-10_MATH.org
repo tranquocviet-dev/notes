@@ -1,0 +1,20 @@
+* Vectors and Matrices
+** Vectors
+- quantities that has _magnitude_ and _direction_ are called vectors
+- a free vector has no specified starting point
+- a position vector has a predefined starting point
+- you can multiply, divide, add or subtract from a vector
+*** Direction
+- There are many ways to describe the angle of a vector, most oftenly using either the x axis (horizontal) or y axis (vertical)
+- sometimes else they are illustrated using coordinates, for example in chess.
+** Matrix
+- a set of values arranged in a virtual table, its dimensions containing horizontal and vertical
+- matrices can accept operations with other matrices (but they have to have *same size*)
+- ngang x doc = 1 value, doc x ngang = bang 3x3 (??????)
+** Calculation with Matrix
+- Format questions into the form of
+  - ax + by = m
+  - cx + dy = n
+- Write them in matrix form
+  - (a | b) (x) = (m)
+  - (c | d) (x) = (n)

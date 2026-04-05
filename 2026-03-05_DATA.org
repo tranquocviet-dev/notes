@@ -1,0 +1,22 @@
+* Data Visualization
+** The 5 most important parts of data visualization
+- Source
+- Visualization tools
+- Audience
+- Storytelling
+- Presentation
+** Interactive Visualization
+- Allows users to control various aspects of the display
+- Response dynamically to user actions
+- Filter and select specific parts of the data to focus on
+- Adjust parameters or settings
+*** Importance
+- Enchancing User Engagement
+- Facilitating Exploration
+- Improved data relationship understanding
+- Real time feedback and analysis
+** Steps to Visualize data
+- Capture the attention of audience
+- Develop narrative
+- Highlight insight
+- Call to action

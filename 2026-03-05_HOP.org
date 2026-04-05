@@ -1,0 +1,11 @@
+* Set up
+** ND
+- Phải có planning đầy đủ, có backup
+- Trong Template nội dung có full trang trí, Lịch trình, backup
+** Format (1 bản, chx tính backup)
+*** Nội dung chính
+*** Timeline
+*** Set up decor
+*** Đề xuất ban mảng
+*** Backup plan
+

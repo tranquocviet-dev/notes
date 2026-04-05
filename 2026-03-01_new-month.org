@@ -1,0 +1,10 @@
+* 2026-03-01
+** I dont think i should contain myself into making stuff that i may not want to so this may not continue
+** This month's project
+*** TODO emacs on terminal
+*** TODO niri review (and comparision to i3wm)
+** Tasks
+*** TODO return to drawing
+*** TODO return to studying japanese
+*** TODO japanese notes
+*** TODO return to learning japanese from songs

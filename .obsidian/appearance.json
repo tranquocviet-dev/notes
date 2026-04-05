@@ -1,0 +1,9 @@
+{
+  "interfaceFontFamily": "Iosevka",
+  "textFontFamily": "Iosevka",
+  "monospaceFontFamily": "Iosevka",
+  "cssTheme": "Minimal",
+  "theme": "obsidian",
+  "baseFontSize": 28,
+  "nativeMenus": false
+}

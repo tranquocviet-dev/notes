@@ -1,0 +1,5 @@
+#+NAME: Inspection of the effects of sleep on human health
+* Initial goals
+Data science is a field of study with vast and heavy responsibilities. It is the job of the researchers to process the data they were given or are readily available to judge and come to conclusions about them, therefore informing the world around them of their findings. Working with statistics is no small task; they must constantly gain insights on the matter, avoid bias, and sometimes must modify the data given to get a more satisfactory result for their view. How others view the data given to them and act accordingly is dependent on how the research interprets such data, and for those reasons, they cannot afford mistakes, even the smallest ones, especially in a field as important as Health.
+
+This report aims to give insight on the complex but fascinating effect that sleep has on human health, illustrating the harmony between one of human's most important forms of rest and the health man. For such important research, information accuracy is of utmost priority, along with a dismissal for bias in the conclusions resulted. The research 
